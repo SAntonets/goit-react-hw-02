@@ -1,0 +1,4 @@
+.reviewsResults {
+  display: flex;
+  flex-direction: row;
+}

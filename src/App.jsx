@@ -5,7 +5,7 @@ import Options from './components/Options/Options'
 import Feedback from './components/Feedback/Feedback'
 
 
-const initialRewiews = {
+const initialReviews = {
   good: 0,
   neutral: 0,
   bad: 0
@@ -14,11 +14,11 @@ const initialRewiews = {
 
 function App() {
 
-  const [reviews, setReviews] = useState({
-  good: 0,
-  neutral: 0,
-  bad: 0
-});
+const [reviews, setReviews] = useState(() => {
+    const stringifiedReviews = localStorage.getItem("reviewsValues");
+    const parsedReviews = JSON.parse(stringifiedReviews) ?? initialReviews;
+    return parsedReviews;
+  });
 
 const handleUpdateFeedback = (feedbackType) => {
   setReviews({ ...reviews, [feedbackType]: reviews[feedbackType] + 1 });
@@ -27,10 +27,15 @@ const handleUpdateFeedback = (feedbackType) => {
 const totalFeedback = reviews.good + reviews.neutral + reviews.bad;
   
 const handleResetFeedback = () => {
-    setReviews(initialRewiews)
+    setReviews(initialReviews)
   };
 
-const positiveFeedback = Math.round(((reviews.good + reviews.neutral) / totalFeedback) * 100)
+  const positiveFeedback = Math.round(((reviews.good + reviews.neutral) / totalFeedback) * 100)
+  
+
+  useEffect(() => {
+    localStorage.setItem("reviewsValues", JSON.stringify(reviews));
+  }, [reviews]); 
 
 
   return (
