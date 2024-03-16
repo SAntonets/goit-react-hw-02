@@ -42,7 +42,7 @@ const handleResetFeedback = () => {
     <>
     <Description />
     <Options reviews={reviews} handleUpdateFeedback={handleUpdateFeedback} totalFeedback={totalFeedback} handleResetFeedback={handleResetFeedback} />
-    <Feedback reviews={reviews} totalFeedback={totalFeedback} positiveFeedback={positiveFeedback} />
+      <Feedback reviews={reviews} totalFeedback={totalFeedback} positiveFeedback={positiveFeedback} />
     </>
   )
 }

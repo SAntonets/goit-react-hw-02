@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import css from "./Feedback.component.css";
+import css from "./Feedback.module.css";
 
 const Feedback = ({ reviews, totalFeedback, positiveFeedback }) => {
     
