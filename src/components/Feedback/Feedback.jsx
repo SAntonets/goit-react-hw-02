@@ -3,7 +3,7 @@ import css from "./Feedback.module.css";
 
 const Feedback = ({ reviews, totalFeedback, positiveFeedback }) => {
     
-if (totalFeedback > 0)
+
   return (
     <div>
       <ul className={css.reviewsResults}>
@@ -14,11 +14,7 @@ if (totalFeedback > 0)
               <li>Positive: {positiveFeedback}%</li>
  </ul>
     </div>
-  )
-else
-    return (
-<div><p>No feedback yet</p></div>)
-    
+ )   
 };
 
 export default Feedback;

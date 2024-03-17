@@ -3,6 +3,7 @@ import './App.css'
 import Description from './components/Description/Description'
 import Options from './components/Options/Options'
 import Feedback from './components/Feedback/Feedback'
+import Notification from './components/Notofication/Notification'
 
 
 const initialReviews = {
@@ -42,7 +43,12 @@ const handleResetFeedback = () => {
     <>
     <Description />
     <Options reviews={reviews} handleUpdateFeedback={handleUpdateFeedback} totalFeedback={totalFeedback} handleResetFeedback={handleResetFeedback} />
-      <Feedback reviews={reviews} totalFeedback={totalFeedback} positiveFeedback={positiveFeedback} />
+     {totalFeedback !== 0 ? (
+            <Feedback reviews={reviews} totalFeedback={totalFeedback} positiveFeedback={positiveFeedback} />
+        ) : (
+            <Notification />
+        )}
+    
     </>
   )
 }
